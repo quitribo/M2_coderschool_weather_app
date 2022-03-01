@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 
+!process.env.REACT_APP_API_KEY && console.log("can not get api key");
+
 const api = {
-  key: "5c16a0b5dabc0b620f294723b36fb629",
+  key: process.env.REACT_APP_API_KEY,
   base: "http://api.openweathermap.org/data/2.5/",
 };
 
