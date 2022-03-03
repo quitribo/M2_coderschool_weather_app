@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./App.css";
 
 !process.env.REACT_APP_API_KEY && console.log("can not get api key");
 
@@ -48,27 +49,29 @@ function App() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="City"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
-        <button>Search</button>
-      </form>
+      <div className="container">
+        <form onSubmit={handleSubmit} className="form-input">
+          <input
+            type="text"
+            placeholder="City"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
+          <button>Search</button>
+        </form>
 
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <>
-          {errorMessage ? (
-            <div style={{ color: "red" }}>{errorMessage}</div>
-          ) : (
-            <div>{weatherInfo}</div>
-          )}
-        </>
-      )}
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
+            {errorMessage ? (
+              <div style={{ color: "red" }}>{errorMessage}</div>
+            ) : (
+              <div>{weatherInfo}</div>
+            )}
+          </>
+        )}
+      </div>
     </>
   );
 }
